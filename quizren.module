@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains quizren.module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
+/**
+ * Implements hook_node_view().
+ */
+function quizren_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  // Only process Quiz content type nodes.
+  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'quiz') {
+    $nid = $entity->id();
+    
+    // Add JavaScript library and settings.
+    $build['#attached']['library'][] = 'quizren/quiz_renderer';
+    $build['#attached']['drupalSettings']['quizren']['nid'] = $nid;
+    $build['#attached']['drupalSettings']['quizren']['api_endpoint'] = '/api/v1/quiz/data';
+  }
+}

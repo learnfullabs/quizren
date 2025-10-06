@@ -1,0 +1,17 @@
+quizren.test:
+  path: '/admin/config/quizren/test/{nid}'
+  defaults:
+    _controller: '\Drupal\quizren\Controller\QuizrenTestController::testServices'
+    _title: 'Test Quizren Services'
+    nid: null
+  requirements:
+    _permission: 'administer site configuration'
+    nid: \d*
+
+quizren.test_no_nid:
+  path: '/admin/config/quizren/test'
+  defaults:
+    _controller: '\Drupal\quizren\Controller\QuizrenTestController::testServices'
+    _title: 'Test Quizren Services'
+  requirements:
+    _permission: 'administer site configuration'

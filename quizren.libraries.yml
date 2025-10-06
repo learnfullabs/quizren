@@ -1,0 +1,12 @@
+quiz_renderer:
+  version: 1.x
+  js:
+    js/mathjax-config.js: { weight: -10 }
+    https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js: { type: external, minified: true, weight: -5 }
+    js/quiz-renderer.js: {}
+  css:
+    theme:
+      css/quiz-renderer.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings

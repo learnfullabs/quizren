@@ -1,0 +1,8 @@
+services:
+  quizren.api_service:
+    class: Drupal\quizren\Service\QuizApiService
+    arguments: ['@http_client', '@logger.factory', '@config.factory']
+  
+  quizren.parser_service:
+    class: Drupal\quizren\Service\QuizParserService
+    arguments: ['@logger.factory']
